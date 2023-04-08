@@ -1,7 +1,10 @@
 import BookShow from "./BookShow";
-function BookList({booksList, deleteBookById, saveEditedBook}){
-  const bookShowList = booksList.map(currentBook => {
-    return <BookShow book = {currentBook} deleteBookById = {deleteBookById} saveEditedBook = {saveEditedBook}/>
+import { useContext } from "react";
+import BooksContext from "./context/books";
+function BookList(){
+  const {books} = useContext(BooksContext);
+  const bookShowList = books.map(currentBook => {
+    return <BookShow book = {currentBook}/>
   })
 
   return bookShowList;
